@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Demo</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/icheck.blue.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><i class="fa fa-dashboard"></i>&nbsp DFS 360</a>
+      </div>
+<!-- comment
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Nav header</li>
+              <li><a href="#">Separated link</a></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div> -->
+    </div>
+  </nav>
+
+
+  <div class="container">
+
+  <div class="row clearfix">
+    <div class="col-md-12 column well">
+      <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="#">Regular Report</a></li>
+        <li role="presentation"><a href="#">Cusomized Report</a></li>
+        <li role="presentation"><a href="#">Help & Contacts</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row clearfix">
+    <div class="col-md-4 column">
+        <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Products selection</h3>
+        </div>
+          <div class="panel-body prod">
+          <input type="checkbox" id="inlineCheckbox1" name="prod_card" value="Y">
+          <label>Discover Credit Cards</label><br>
+
+          <input type="checkbox" id="inlineCheckbox2" name="prod_dpl" value="Y">
+          <label>Discover Personal Loans</label><br>
+
+          <input type="checkbox" id="inlineCheckbox3" name="prod_dsl" value="Y">
+          <label>Discover Student Loans</label><br>
+
+          <input type="checkbox" id="inlineCheckbox4" name="prod_dhl" value="Y">
+          <label>Discover Home Loans</label><br>
+
+          <input type="checkbox" id="inlineCheckbox5" name="prod_dhe" value="Y">
+          <label>Discover Home Equity</label><br>
+
+          <input type="checkbox" id="inlineCheckbox6" name="prod_dep" value="Y">
+          <label>Deposit</label>
+
+          </div>
+        </div>
+    </div>
+    <div class="col-md-8 column">
+        <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Metrics selection</h3>
+        </div>
+          <div class="panel-body metric">
+          <input type="checkbox" id="inlineCheckbox1" name="m_fico" value="Y">
+          <label>FICO</label>
+          &nbsp
+
+          <input type="checkbox" id="inlineCheckbox2" name="m_mob" value="Y">
+          <label>MOB</label>
+          &nbsp
+
+          <input type="checkbox" id="inlineCheckbox3" name="m_bal" value="Y">
+          <label>Balance</label>
+          &nbsp
+
+          <input type="checkbox" id="inlineCheckbox4" name="m_apr" value="Y">
+          <label>APR</label>
+          &nbsp
+
+          <input type="checkbox" id="inlineCheckbox5" name="m_dlq" value="Y">
+          <label>Off-us DLQ</label>
+
+          </div>
+        </div>
+    </div>
+  </div>  
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+      <button type="reset" class="btn btn-warning pull-right"><i class="fa fa-undo"></i>&nbsp Reset</button>
+      <p class="pull-right">&nbsp&nbsp</p>
+      <button type="submit" class="btn btn-success pull-right" id="btn-submit"><i class="fa fa-send"></i>&nbsp Submit</button>
+    </div>
+  </div>
+
+
+  <div id="display">
+  </div>
+<!--
+  <div class="row clearfix" id="display">
+    <div class="col-md-6 column">
+      <img src="http://rwxp118l1.rw.discoverfinancial.com:8888/CLB4/ycao02/upload/card_attr_profiling_MTHLY_EXT_STAT_CDE.png" class="img-responsive" alt="MTHLY_EXT_STAT_CDE">
+    </div>
+    <div class="col-md-6 column">
+      <img src="http://rwxp118l1.rw.discoverfinancial.com:8888/CLB4/ycao02/upload/card_attr_profiling_MTHLY_TOT_BAL_AMT.png" class="img-responsive" alt="MTHLY_TOT_BAL_AMT">
+    </div>
+  </div>
+-->
+
+
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Discover Financial Services &#169 2014 All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/icheck.min.js"></script>
+  <script src="js/spin.min.js"></script>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' // optional
+    }); 
+
+    var prod_check = 0;
+    $('.prod input').on('ifChecked', function(){
+      prod_check++;
+      if(prod_check>=2) {
+        $('.prod input').each(function(){
+          if(this.checked==false) {
+            $(this).iCheck('disable');
+          }
+        });
+      }
+    });
+
+    $('.prod input').on('ifUnchecked', function(){
+      prod_check--;
+      if(prod_check<2) {
+        $('.prod input').each(function(){
+          if(this.disabled==true) {
+            $(this).iCheck('enable');
+          }
+        });
+      }
+    });
+
+
+    $('#btn-submit').click(function(){
+        // Add a spinner when loading
+        //$('#display').append("<div class='col-md-12 column' style='height: 200px'></div>");
+        var pos = ($('#display').position().top + 120) + "px";
+        var opts = {
+          lines: 13, // The number of lines to draw
+          length: 20, // The length of each line
+          width: 10, // The line thickness
+          radius: 30, // The radius of the inner circle
+          corners: 1, // Corner roundness (0..1)
+          rotate: 0, // The rotation offset
+          direction: 1, // 1: clockwise, -1: counterclockwise
+          color: '#428BCA', // #rgb or #rrggbb or array of colors
+          speed: 1, // Rounds per second
+          trail: 60, // Afterglow percentage
+          shadow: true, // Whether to render a shadow
+          hwaccel: false, // Whether to use hardware acceleration
+          className: 'spinner', // The CSS class to assign to the spinner
+          zIndex: 2e9, // The z-index (defaults to 2000000000)
+          top: pos,// Top position relative to parent
+          left: '50%' // Left position relative to parent
+        };
+        var target = document.getElementById('display');
+        var spinner = new Spinner(opts).spin(target);
+
+        var data = {
+          "url1" : "http://rwxp118l1.rw.discoverfinancial.com:8888/CLB4/ycao02/upload/card_attr_profiling_MTHLY_EXT_STAT_CDE.png",
+          "url2" : "http://rwxp118l1.rw.discoverfinancial.com:8888/CLB4/ycao02/upload/card_attr_profiling_MTHLY_TOT_BAL_AMT.png",
+        };
+        // $(this).delay(1000).function(){spinner.stop()};
+        setTimeout(
+        function() 
+        {
+
+          spinner.stop();
+            var newdiv = "<div class='row clearfix' style='margin-top: 20px'>"
+                       + "<div class='col-md-6 column'>"
+                       + "<img src='" + data.url1 + "' class='img-responsive' alt=''>"
+                       + "</div>"
+                       + "<div class='col-md-6 column'>"
+                       + "<img src='" + data.url2 + "' class='img-responsive' alt=''>"
+                       + "</div>"
+                       + "</div>";
+          newdiv = newdiv + "<div class='row clearfix' style='margin-top: 20px'>"
+                       + "<div class='col-md-6 column' id='chart1' style='height:400px'>"
+                       + "</div>"
+                       + "<div class='col-md-6 column' id='chart2' style='height:400px'>"
+                       + "</div>"
+                       + "</div>";
+
+          $('#display').html(newdiv);
+
+          Morris.Line({
+            element: 'chart1',
+            data: [
+              { year: '2008', value: 20 },
+              { year: '2009', value: 10 },
+              { year: '2010', value: 5 },
+              { year: '2011', value: 5 },
+              { year: '2012', value: 20 }
+            ],
+            xkey: 'year',
+            ykeys: ['value'],
+            labels: ['Value'],
+            hideHover: true
+          });
+
+          Morris.Bar({
+            element: 'chart2',
+            data: [
+              { y: '2006', a: 100, b: 90 },
+              { y: '2007', a: 75,  b: 65 },
+              { y: '2008', a: 50,  b: 40 },
+              { y: '2009', a: 75,  b: 65 },
+              { y: '2010', a: 50,  b: 40 },
+              { y: '2011', a: 75,  b: 65 },
+              { y: '2012', a: 100, b: 90 }
+            ],
+            xkey: 'y',
+            ykeys: ['a', 'b'],
+            labels: ['Series A', 'Series B'],
+            hideHover: true
+          });
+
+        }, 2000);
+    });
+
+
+  });
+  </script>
+
+</body>
+</html>
